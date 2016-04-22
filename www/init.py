@@ -138,6 +138,8 @@ async def logger_factory(app, handler):
 ####################
 # 启动 asyncio 协程
 from www import database
+
+
 async def init(loop, port=8080, host="localhost"):
     await  database.create_database_connection_pool(loop=loop, maxsize=10, minsize=5)
     app = web.Application(loop=loop, middlewares=[
@@ -150,14 +152,17 @@ async def init(loop, port=8080, host="localhost"):
     logging.info('server started at http://' + host + ':' + str(port))
     return srv
 
+
 ####################
 # 主入口
 
 from conf.config import configs
 
+
 def main():
     loop = asyncio.get_event_loop()
     loop.run_until_complete(init(loop, configs.get("server")['port'], configs.get("server")['host']))
     loop.run_forever()
+
 
 main()

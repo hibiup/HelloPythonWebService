@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 
 def get(path):
     '''
-    Define decorator @get('/path')
+    Define decorator @get('/path/{value}')
     '''
 
     def decorator(func):
@@ -29,7 +29,7 @@ def get(path):
 
 def post(path):
     '''
-    Define decorator @post('/path')
+    Define decorator @post('/path/{value}')
     '''
 
     def decorator(func):

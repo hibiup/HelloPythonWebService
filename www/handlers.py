@@ -15,6 +15,9 @@ from www.core.decorators import get
 
 ####################
 # Service URIs
-@get("/")
-def index(request):
-    return web.Response(body=b'<h1>Awesome</h1>')
+@get("/{id}")
+def index(id):
+    return {
+        '__template__': 'home.html',
+        'id': id
+    }
