@@ -16,7 +16,7 @@ from www.core.decorators import get
 ####################
 # Service URIs
 @get("/{id}")
-def index(id):
+def index(id=''):  # With default value = <Empty>
     return {
         '__template__': 'home.html',
         'id': id
